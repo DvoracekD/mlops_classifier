@@ -8,7 +8,7 @@ def normalize_tensor(tensor):
 
 if __name__ == "__main__":
     train_data, train_labels = [], []
-    for i in range(5):
+    for i in range(10):
         train_data.append(torch.load(f"data/raw/train_images_{i}.pt"))
         train_labels.append(torch.load(f"data/raw/train_target_{i}.pt"))
 
