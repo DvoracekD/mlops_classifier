@@ -6,8 +6,8 @@ from tests import _PATH_DATA
 
 print(_PATH_DATA)
 
-@pytest.mark.skipif(not os.path.exists(_PATH_DATA), reason="Data files not found")
-def test_data():
+@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed/train_data.pt")), reason="Data files not found")
+def test_train_data_loading():
     dataset = data.train_dataset()
     assert len(dataset) == 50000
     img, label =  next(iter(dataset))
