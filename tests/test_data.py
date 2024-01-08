@@ -1,5 +1,12 @@
-import classifier.data.dataset as data
+import os.path
+import pytest
 
+import classifier.data.dataset as data
+from tests import _PATH_DATA
+
+print(_PATH_DATA)
+
+@pytest.mark.skipif(not os.path.exists(_PATH_DATA), reason="Data files not found")
 def test_data():
     dataset = data.train_dataset()
     assert len(dataset) == 50000
