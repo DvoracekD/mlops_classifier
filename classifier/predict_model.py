@@ -7,8 +7,8 @@ from classifier.models.model import MyNeuralNet
 
 
 @click.command()
-@click.argument("model", help="file containing a pretrained model")
-@click.argument("data", help="images for prediction")
+@click.argument("model")
+@click.argument("data")
 def main(model, data):
     """Evaluate a trained model."""
     print("Evaluating like my life dependends on it")
@@ -31,6 +31,9 @@ def main(model, data):
             acc.append(accuracy.item())
         print(f"Accuracy: {torch.tensor(acc).mean()*100}%")
     model.train()
+
+def predict():
+    pass
 
 
 if __name__ == "__main__":
