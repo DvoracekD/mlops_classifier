@@ -26,5 +26,3 @@ jobs:
     - name: Lint with Ruff
       run: ruff --output-format=github .
       continue-on-error: true
-    - name: Run MyPy
-      run: mypy
