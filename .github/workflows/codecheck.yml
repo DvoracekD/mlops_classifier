@@ -25,4 +25,3 @@ jobs:
         pip install mypy
     - name: Lint with Ruff
       run: ruff --output-format=github .
-      continue-on-error: true
