@@ -19,8 +19,12 @@ jobs:
       with:
         python-version: 3.11
         cache: 'pip'
-    - name: Lint with Ruff
+    - name: Install dependencies
       run: |
         pip install ruff
-        ruff --output-format=github .
+        pip install mypy
+    - name: Lint with Ruff
+      run: ruff --output-format=github .
       continue-on-error: true
+    - name: Run MyPy
+      run: mypy
