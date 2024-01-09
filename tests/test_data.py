@@ -16,4 +16,3 @@ def test_train_data_loading():
     unique_labels = set(range(10))
     all_labels_present = all(label in unique_labels for label in set(dataset.tensors[1].numpy()))
     assert all_labels_present, "Not all labels are represented in the dataset."
-    
