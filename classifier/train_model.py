@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import torch
 from torch import nn, optim
 
-from classifier.models.model import MyNeuralNet
 import classifier.data.dataset as data
+from classifier.models.model import MyNeuralNet
 
 lr = 1e-3
 batch_size = 64
 
-def train_epoch(epoch, train_loader, optimizer, model, criterion,  train_losses=[], test_losses=[]):
+
+def train_epoch(epoch, train_loader, optimizer, model, criterion, train_losses=[], test_losses=[]):
     running_loss = 0
     for images, labels in train_loader:
         optimizer.zero_grad()
@@ -25,6 +26,7 @@ def train_epoch(epoch, train_loader, optimizer, model, criterion,  train_losses=
         loss = running_loss / len(train_loader)
         test_losses.append(loss)
         print(f"Training loss: {loss}")
+
 
 if __name__ == "__main__":
     """Train a model on MNIST."""

@@ -32,6 +32,7 @@ def main(model, data):
         print(f"Accuracy: {torch.tensor(acc).mean()*100}%")
     model.train()
 
+
 def predict():
     pass
 

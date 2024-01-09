@@ -1,6 +1,8 @@
-import torch
 import pytest
+import torch
+
 from classifier.models.model import MyNeuralNet
+
 
 def test_model():
     batch_n = 64
@@ -10,7 +12,8 @@ def test_model():
 
     assert output.shape == (batch_n, 10)
 
+
 def test_error_on_wrong_shape():
-    with pytest.raises(ValueError, match='Expected input to a 4D tensor'):
+    with pytest.raises(ValueError, match="Expected input to a 4D tensor"):
         model = MyNeuralNet()
-        model(torch.randn(1,2,3))
+        model(torch.randn(1, 2, 3))

@@ -1,6 +1,8 @@
 import torch
 from torch import nn, optim
+
 from classifier.train_model import train_epoch
+
 
 def test_train_epoch():
     model = nn.Linear(2, 2)

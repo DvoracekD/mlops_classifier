@@ -1,5 +1,6 @@
 import torch
 
+
 def train_dataset():
     train_data = torch.load("data/processed/train_data.pt")
     train_labels = torch.load("data/processed/train_labels.pt")
