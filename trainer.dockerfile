@@ -12,7 +12,8 @@ COPY classifier/ classifier/
 COPY data/ data/
 
 WORKDIR /
-RUN pip install -r requirements.txt --no-cache-dir
-RUN pip install . --no-deps --no-cache-dir
+# RUN pip install -r requirements.txt --no-cache-dir
+RUN --mount=type=cache,target=~/.cache/pip pip install -r requirements.txt --no-cache-dir
+RUN pip install -e . --no-deps --no-cache-dir
 
 ENTRYPOINT ["python", "-u", "classifier/train_model.py"]

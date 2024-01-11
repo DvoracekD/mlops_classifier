@@ -1,3 +1,5 @@
+import os
+
 import matplotlib.pyplot as plt
 import torch
 from torch import nn, optim
@@ -45,6 +47,15 @@ if __name__ == "__main__":
     for e in range(epochs):
         train_epoch(e, train_loader, optimizer, model, criterion, train_losses, test_losses)
 
+    # Check if reports/figures/ exists, if not create it
+    figures_dir = "reports/figures"
+    if not os.path.exists(figures_dir):
+        os.makedirs(figures_dir)
+    # Do the same for models/
+    models_dir = "models"
+    if not os.path.exists(models_dir):
+        os.makedirs(models_dir)
+
     plt.plot(train_losses)
-    plt.savefig("reports/figures/training.png")
-    torch.save(model.state_dict(), "models/trained_model.pt")
+    plt.savefig(os.path.join(figures_dir, "training.png"))
+    torch.save(model.state_dict(), os.path.join(models_dir, "trained_model.pt"))
